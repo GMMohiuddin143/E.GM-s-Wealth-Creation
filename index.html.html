@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeFX Capital | Investor Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0b0e19;color:white;}
+a{text-decoration:none;color:white;}
+
+/* Navbar */
+.navbar{
+width:100%; padding:15px 5%; background:rgba(0,0,0,0.7); position:fixed; top:0; left:0; display:flex; justify-content:space-between; align-items:center; z-index:1000; backdrop-filter:blur(10px);}
+.navbar h2{font-family:'Merriweather',serif; font-size:24px; background:linear-gradient(90deg,#00f5ff,#00ff94); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.navbar .links a{margin-left:25px; font-weight:500; transition:0.3s;}
+.navbar .links a:hover{color:#00ff94;}
+
+/* Hero/Login */
+.hero-portal{
+height:100vh; display:flex; justify-content:center; align-items:center; background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=2070') center/cover no-repeat; background-size:cover; flex-direction:column; text-align:center;
+}
+.hero-portal h1{font-family:'Merriweather',serif; font-size:55px; background:linear-gradient(90deg,#00f5ff,#00ff94); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:20px;}
+.hero-portal button{padding:15px 40px; border-radius:30px; border:none; font-size:18px; cursor:pointer; background:linear-gradient(45deg,#00f5ff,#0066ff); box-shadow:0 0 25px rgba(0,245,255,0.6); transition:0.4s;}
+.hero-portal button:hover{transform:scale(1.05); box-shadow:0 0 50px rgba(0,245,255,1);}
+
+/* Dashboard */
+.dashboard{display:none; padding:100px 5%; background:#0b0e19; min-height:100vh;}
+.dashboard h2{font-family:'Merriweather',serif; font-size:36px; margin-bottom:40px; color:#00ff94;}
+
+/* Stats */
+.stats{display:flex; flex-wrap:wrap; gap:30px; margin-bottom:50px;}
+.stat-box{flex:1; min-width:200px; background:rgba(255,255,255,0.05); backdrop-filter:blur(15px); border-radius:20px; padding:30px; text-align:center; border:1px solid rgba(255,255,255,0.1); transition:0.4s;}
+.stat-box h3{font-size:32px; color:#00ff94;}
+.stat-box p{opacity:0.8; margin-top:10px;}
+
+/* Charts */
+.chart-container{background:rgba(255,255,255,0.05); backdrop-filter:blur(15px); border-radius:20px; padding:20px; margin-bottom:50px;}
+
+/* Offers */
+.offers{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;}
+.card{background:rgba(255,255,255,0.05); backdrop-filter:blur(20px); border-radius:25px; padding:35px; border:1px solid rgba(255,255,255,0.1); transition:0.4s;}
+.card:hover{transform:translateY(-10px); box-shadow:0 0 40px rgba(0,255,150,0.4);}
+.card h3{margin-bottom:15px; font-size:24px; color:#00f5ff;}
+.card p{opacity:0.8; font-size:16px; line-height:1.5;}
+
+/* Contact/Footer */
+.contact{background:rgba(255,255,255,0.05); backdrop-filter:blur(20px); border-radius:20px; padding:60px 5%; text-align:center; margin-top:50px; border:1px solid rgba(255,255,255,0.1);}
+footer{padding:25px;text-align:center;background:#0b0e19; opacity:0.7; font-size:14px; margin-top:40px;}
+
+/* Animations */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-50px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+<h2>PrimeFX Capital</h2>
+<div class="links"><a href="#dashboard">Dashboard</a><a href="#contact">Contact</a></div>
+</div>
+
+<!-- Hero/Login -->
+<section class="hero-portal" id="login">
+<h1>Investor Portal</h1>
+<button onclick="loginPortal()">Login / Enter Dashboard</button>
+</section>
+
+<!-- Dashboard -->
+<section class="dashboard" id="dashboard">
+<h2>Welcome, Investor</h2>
+
+<!-- Stats -->
+<div class="stats">
+<div class="stat-box"><h3>$125,000</h3><p>Portfolio Value</p></div>
+<div class="stat-box"><h3>18%</h3><p>Monthly Growth</p></div>
+<div class="stat-box"><h3>$22,500</h3><p>Total Profit</p></div>
+</div>
+
+<!-- Chart -->
+<div class="chart-container">
+<canvas id="portfolioChart" width="100%" height="400"></canvas>
+</div>
+
+<!-- Offers -->
+<h2>Investment Plans</h2>
+<div class="offers">
+<div class="card"><h3>3 Months</h3><p>Target growth up to 60–90%*</p></div>
+<div class="card"><h3>6 Months</h3><p>Target growth up to 120–180%*</p></div>
+<div class="card"><h3>9 Months</h3><p>Target growth up to 180–270%*</p></div>
+<div class="card"><h3>12 Months</h3><p>Target growth up to 240–360%*</p></div>
+</div>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+<h2>Contact & Support</h2>
+<p>Email: yourname@email.com</p>
+<p>WhatsApp: +123456789</p>
+</section>
+
+<footer>
+© 2026 PrimeFX Capital. All Rights Reserved.
+</footer>
+</section>
+
+<!-- JS for Dashboard -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Login simulation
+function loginPortal(){
+document.getElementById('login').style.display='none';
+document.querySelector('.dashboard').style.display='block';
+}
+
+// Sample chart (EURUSD simulated)
+const ctx = document.getElementById('portfolioChart').getContext('2d');
+const portfolioChart = new Chart(ctx, {
+type:'line',
+data:{
+labels:['Jan','Feb','Mar','Apr','May','Jun','Jul'],
+datasets:[{
+label:'Portfolio Value',
+data:[100000,105000,110000,120000,115000,125000,130000],
+borderColor:'#00ff94',
+backgroundColor:'rgba(0,255,148,0.2)',
+tension:0.3,
+fill:true,
+pointRadius:4,
+pointBackgroundColor:'#00f5ff'
+}]
+},
+options:{
+responsive:true,
+plugins:{legend:{display:false}},
+scales:{y:{beginAtZero:false}}
+}
+});
+</script>
+
+</body>
+</html>
